@@ -1,0 +1,3 @@
+# Project exclude paths
+/oder_service/target/
+/product_service/target/
