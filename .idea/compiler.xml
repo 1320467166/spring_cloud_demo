@@ -8,12 +8,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="product_service" />
+        <module name="eureka_service" />
+        <module name="Eureka_service" />
         <module name="oder_service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka_server" target="1.8" />
+      <module name="eureka_service" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Eureka_service" options="-parameters" />
+      <module name="eureka_server" options="-parameters" />
+      <module name="eureka_service" options="-parameters" />
       <module name="oder_service" options="-parameters" />
       <module name="product_service" options="-parameters" />
       <module name="spring_cloud_demo" options="-parameters" />
