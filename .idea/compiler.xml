@@ -7,10 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="product_service" />
+        <module name="oder_service" />
         <module name="eureka_service" />
         <module name="Eureka_service" />
-        <module name="oder_service" />
+        <module name="product_service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

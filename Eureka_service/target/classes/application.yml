@@ -15,3 +15,6 @@ eureka:
     fetch-registry: false #是否从eureka获取注册信息
     service-url: #配置暴露给eureka client的请求地址
       defaultZone: http://${eureka.instance.hostname}:8000/eureka/
+  server:
+    enable-self-preservation: false #关闭自我保护机制
+    eviction-interval-timer-in-ms: 4000 #剔除服务的间隔

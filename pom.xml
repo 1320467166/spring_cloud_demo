@@ -47,7 +47,7 @@
         </dependency>
     </dependencies>
 
-
+    <!--springCloud依赖-->
     <dependencyManagement>
         <dependencies>
             <dependency>

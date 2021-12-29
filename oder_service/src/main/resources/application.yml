@@ -1,5 +1,5 @@
 server:
-  port: 9002
+  port: 9003
 spring:
   application:
     name: order-service
@@ -12,6 +12,12 @@ spring:
     database: MySQL
     show-sql: true
     open-in-view: true
+  redis:
+    host: 106.15.184.14
+    port: 6379
+    database: 0
+    timeout: 30000
+    #password: 123456
 eureka:
   client:
     service-url:
@@ -21,3 +27,9 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
     lease-expiration-duration-in-seconds: 10 #续约到期时间
     lease-renewal-interval-in-seconds: 5  #向注册中心注册服务id
+service-product:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#logging:
+#  level:
+#    root: debug

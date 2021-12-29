@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /*使用jpa 需接口继承*/
 public interface ProductDao extends JpaRepository<Product,Long>, JpaSpecificationExecutor<Product> {
-
+    
 }
