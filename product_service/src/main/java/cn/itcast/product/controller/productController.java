@@ -3,6 +3,7 @@ package cn.itcast.product.controller;
 import cn.itcast.product.entity.Product;
 import cn.itcast.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -22,6 +23,7 @@ public class productController {
     private String ip;
 
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    @Cacheable(cacheNames = {"product"},key = "#id")
     public Product findById(@PathVariable Long id){
         Product product = productService.findById(id);
         product.setProductName(ip+"使用的端口号"+port);

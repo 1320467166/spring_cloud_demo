@@ -1,4 +1,4 @@
-package cn.itcast.order.Configs;
+package cn.itcast.order.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

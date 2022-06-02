@@ -1,15 +1,11 @@
-package cn.itcast.order.Configs;
+package cn.itcast.order.configs;
 
-import com.fasterxml.jackson.databind.ser.std.StringSerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-
-import java.net.UnknownHostException;
 
 @Configuration
 public class RedisConfig {
@@ -24,7 +20,6 @@ public class RedisConfig {
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
         template.setValueSerializer(jackson2JsonRedisSerializer);
         template.setHashValueSerializer(jackson2JsonRedisSerializer);
-        //
         template.setConnectionFactory(redisConnectionFactory);
         return template;
     }

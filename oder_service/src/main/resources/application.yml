@@ -14,10 +14,10 @@ spring:
     open-in-view: true
   redis:
     host: 106.15.184.14
-    port: 6379
+    port: 9379
     database: 0
     timeout: 30000
-    #password: 123456
+    password: ROOKIElml2022.
 eureka:
   client:
     service-url:

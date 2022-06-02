@@ -1,5 +1,6 @@
 package cn.itcast.order.utils;
 
+import cn.itcast.order.exceptions.BusinessException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,12 @@ public class RedisUtils {
     * 添加 键值
     */
     public void set(String key, Object value, Long expireTime) {
-        redisTemplate.opsForValue().set(key,value,expireTime, TimeUnit.SECONDS);
+        if(expireTime < 0 ) {
+            throw new BusinessException("输入过期时间小于0");
+        }else{
+            redisTemplate.opsForValue().set(key,value,expireTime, TimeUnit.SECONDS);
+        }
+
     }
     /***
      * 获取键值
