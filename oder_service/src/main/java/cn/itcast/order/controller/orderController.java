@@ -28,7 +28,7 @@ public class orderController {
     @Resource
     private DiscoveryClient discoveryClient;
     @Resource
-    @Qualifier("redisTemplate")
+//    @Qualifier("redisTemplate")
     private RedisTemplate redisTemplate;
     @Resource
     private RedisUtils redisUtils;
@@ -41,8 +41,6 @@ public class orderController {
     @ApiOperation(value = "消费",notes = "消费")
     public Product findById(@PathVariable Long id) {
         Product product = restTemplate.getForObject("http://service-product/product/"+id, Product.class);
-        redisUtils.set("product",product,60L);
-        System.out.println(redisUtils.get("product"));
         return product;
     }
 }

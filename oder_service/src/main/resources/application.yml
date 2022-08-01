@@ -18,18 +18,25 @@ spring:
     database: 0
     timeout: 30000
     password: ROOKIElml2022.
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:9000/eureka/,http://localhost:8000/eureka/
-  instance:
-    prefer-ip-address: true #使用ip地址注册
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    lease-expiration-duration-in-seconds: 10 #续约到期时间
-    lease-renewal-interval-in-seconds: 5  #向注册中心注册服务id
-service-product:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+  ###开始consul的配置
+  cloud:
+    consul:
+      #注册中心consul的ip地址
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        #是否需要的注册
+        register: false
+        #注册的实例id(唯一)
+        instance-id: ${spring.application.name} -1
+        #服务的名称
+        service-name: ${spring.application.name}
+        #服务的请求端口
+        port: ${server.port}
+        #指定开启ip地址注册
+        prefer-ip-address: true
+        #当前服务的请求ip
+        ip-address: ${spring.cloud.client.ip-address}
 #logging:
 #  level:
 #    root: debug
